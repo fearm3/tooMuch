@@ -1,0 +1,38 @@
+@import "Global.scss";
+@import "Colour.scss";
+
+.c-wrapper {
+  margin: 0 auto 0 auto;
+}
+
+body > iframe {
+  &:last-child {
+    display: none;
+  }
+}
+
+#root {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Common XS1 and XS2 */
+@media all and (max-width: #{($mq-sm1 - 1) + "px"}) {
+  .c-wrapper {
+    width: #{$c-wrapper-xs1-width};
+  }
+}
+
+/* Common SM1 and SM2 */
+@media all and (min-width: #{$mq-sm1 + "px"}) and (max-width: #{($mq-md - 1) + "px"}) {
+  .c-wrapper {
+    width: #{$c-wrapper-sm1-width + "px"};
+  }
+}
+
+/* Common MD and LG */
+@media all and (min-width: #{$mq-md + "px"}) {
+  .c-wrapper {
+    width: #{$c-wrapper-md-width + "px"};
+  }
+}

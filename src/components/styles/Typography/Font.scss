@@ -1,0 +1,27 @@
+@import "../Base/Global.scss";
+@import "../Base/Colour.scss";
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../files/Inter-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../../files/Inter-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../../files/Inter-Regular.ttf");
+  font-weight: 400;
+}
+
+body {
+  font-family: "Inter" !important;
+  font-size: 100% !important;
+}
+
+a {
+  text-decoration: none;
+}

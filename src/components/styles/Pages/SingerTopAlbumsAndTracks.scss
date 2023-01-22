@@ -1,0 +1,95 @@
+@import "../Base/Global.scss";
+@import "../Base/Colour.scss";
+
+/* Common xs1, xs2 */
+@media all and (max-width: #{($mq-sm1 - 1) + "px"}) {
+  .singers-albums-tracks-page {
+  }
+}
+
+/* Common sm-1,sm-2 */
+@media all and (min-width: #{$mq-sm1 + "px"}) and (max-width: #{($mq-md - 1) + "px"}) {
+  .singers-albums-tracks-page {
+  }
+}
+
+/* Common md, lg */
+@media all and (min-width: #{$mq-md + "px"}) {
+  .singers-albums-tracks-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 200px;
+    padding: 40px 0 0 0;
+    border: 1.5px solid black;
+
+    .c-go-home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .c-item-home-icon {
+        margin-right: 10px;
+      }
+
+      .c-item-home-arrow {
+        margin-right: 5px;
+      }
+      .c-item-title {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        width: 100%;
+        color: black;
+      }
+    }
+    .c-singer-title {
+      border: 1px solid black;
+      width: calc(100% - 450px);
+      margin: 20px 0;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+
+      .c-item-01 {
+        margin-right: 20px;
+        border-radius: 50%;
+      }
+
+      .c-item-02 {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        width: 100%;
+        color: black;
+      }
+    }
+
+    .c-albums-tracks-group-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+
+      .c-item-01 {
+        width: 100%;
+        margin-right: 20px;
+        .c-unit-01 {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          width: 100%;
+          color: black;
+        }
+
+        .c-unit-02 {
+          border: 0.5px solid black;
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+}

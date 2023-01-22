@@ -1,0 +1,36 @@
+﻿@import "../Base/Global.scss";
+@import "../Base/Colour.scss";
+
+/* Common xs1, xs2 */
+@media all and (max-width: #{($mq-sm1 - 1) + "px"}) {
+  .spinner-00 {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+}
+
+/* Common sm-1,sm-2 */
+@media all and (min-width: #{$mq-sm1 + "px"}) and (max-width: #{($mq-md - 1) + "px"}) {
+}
+
+/* Common md, lg */
+@media all and (min-width: #{$mq-md + "px"}) {
+  // .spinner-00 {
+  //     display: flex;
+  //     flex: 1;
+  //     justify-content: center;
+  //     align-items: center;
+  //     padding: 10px 0;
+  // }
+  .spinner-01 {
+    display: flex;
+    // flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0 auto;
+  }
+}

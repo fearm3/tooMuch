@@ -1,0 +1,35 @@
+@import "../Base/Colour.scss";
+@import "../Base/Global.scss";
+
+/* Common xs1, xs2 */
+@media all and (max-width: #{($mq-sm1 - 1) + "px"}) {
+  .title-01 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Common sm-1,sm-2 */
+@media all and (min-width: #{$mq-sm1 + "px"}) and (max-width: #{($mq-md - 1) + "px"}) {
+  .title-01 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Common md, lg */
+@media all and (min-width: #{$mq-md + "px"}) {
+  .title-01 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}

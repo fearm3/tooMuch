@@ -1,0 +1,179 @@
+@import "../../Base/Global.scss";
+@import "../../Base/Colour.scss";
+
+/* Common xs1, xs2 */
+@media all and (max-width: #{($mq-sm1 - 1) + "px"}) {
+  .micro-card-03 {
+  }
+}
+
+/* Common sm-1,sm-2 */
+@media all and (min-width: #{$mq-sm1 + "px"}) and (max-width: #{($mq-md - 1) + "px"}) {
+  .micro-card-03 {
+  }
+}
+
+/* Common md, lg */
+@media all and (min-width: #{$mq-md + "px"}) {
+  .micro-card-03 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-right: 20px;
+    margin-bottom: 26px;
+    background: #fff;
+    border-radius: 14px;
+
+    .c-item-01,
+    .c-item-02 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .c-item-01 {
+      margin: 26px 0 10px 20px;
+
+      .c-unit {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        margin-right: 10px;
+        position: relative;
+        background: linear-gradient(
+          270deg,
+          rgba(35, 231, 170, 0.05) 0%,
+          rgba(8, 186, 234, 0.05) 100%
+        );
+
+        .c-unit-01 {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .c-unit-02 {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        color: #384152;
+      }
+    }
+
+    .c-item-02 {
+      justify-content: space-between;
+      width: 100%;
+      padding: 15px 20px;
+
+      &:hover {
+        background: linear-gradient(270deg, #23e7aa 0%, #08baea 100%);
+        cursor: pointer;
+
+        .c-item-02-A {
+          color: #ffffff;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.6) 100%
+          );
+        }
+        .c-item-02-B {
+          .c-unit-01,
+          .c-unit-02 {
+            color: #fff;
+          }
+        }
+
+        .c-item-02-C{
+          background: rgba(255, 255, 255, 0.3);
+          .c-unit{
+            stroke: #fff;
+            stroke-width: 1.8px;
+          }
+        }
+      }
+      .c-item-02-A {
+        width: 44px;
+        height: 44px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        text-transform: capitalize;
+        background: linear-gradient(#fff 0 0) padding-box,
+          linear-gradient(to right, rgb(35, 231, 170), rgb(8, 186, 234))
+            border-box;
+        border: 1.5px solid transparent;
+        color: #15d0ca;
+
+        &.active {
+          color: #ffffff;
+          background: linear-gradient(
+            135deg,
+            rgba(21, 208, 202, 0.1) 0%,
+            #15d0ca 100%
+          );
+        }
+        padding: 11px 10px 10px 9px;
+        border-radius: 10px;
+        margin-right: 10px;
+      }
+      .c-item-02-B {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        flex: 1;
+        .c-unit-01 {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 19px;
+          text-transform: capitalize;
+          color: #384152;
+        }
+        .c-unit-02 {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 17px;
+          text-transform: capitalize;
+          color: #647086;
+        }
+      }
+
+      .c-item-02-C {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        position: relative;
+        background: linear-gradient(
+          270deg,
+          rgba(35, 231, 170, 0.08) 0%,
+          rgba(8, 186, 234, 0.08) 100%
+        );
+
+        .c-unit {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    .c-item-03 {
+      width: 100%;
+      border: 1px solid #f1f3f8;
+    }
+  }
+}

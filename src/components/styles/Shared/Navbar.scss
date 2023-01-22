@@ -1,0 +1,31 @@
+@import "../Base/Colour.scss";
+@import "../Base/Global.scss";
+
+/* Common xs1, xs2 */
+@media all and (max-width: #{($mq-sm1 - 1) + "px"}) {
+  .navbar-01 {
+  }
+}
+
+/* Common sm-1,sm-2 */
+@media all and (min-width: #{$mq-sm1 + "px"}) and (max-width: #{($mq-md - 1) + "px"}) {
+  .navbar-01 {
+  }
+}
+
+/* Common md, lg */
+@media all and (min-width: #{$mq-md + "px"}) {
+  .navbar-01 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 50px;
+    color: rgb(17, 0, 255);
+
+    &.dark {
+      background: black;
+      color: #fff;
+    }
+  }
+}

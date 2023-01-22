@@ -1,0 +1,90 @@
+@import "../Base/Global.scss";
+@import "../Base/Colour.scss";
+
+/* Common xs1, xs2 */
+@media all and (max-width: #{($mq-sm1 - 1) + "px"}) {
+  .home-page {
+  }
+}
+
+/* Common sm-1,sm-2 */
+@media all and (min-width: #{$mq-sm1 + "px"}) and (max-width: #{($mq-md - 1) + "px"}) {
+  .home-page {
+  }
+}
+
+/* Common md, lg */
+@media all and (min-width: #{$mq-md + "px"}) {
+  .home-page {
+    display: flex;
+    width: calc(100% - 20px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #fff;
+    padding-bottom: 50px;
+
+    &.dark {
+      background: black;
+
+      .c-toogle-button-group {
+        .c-item-02 {
+          fill: white;
+          background: rgb(67, 64, 64);
+        }
+      }
+
+      .c-top-artist-list .c-card-group-container {
+        background: rgb(67, 64, 64);
+      }
+    }
+
+    .c-toogle-button-group {
+      margin-bottom: 25px;
+      margin-top: 25px;
+      .c-item-01,
+      .c-item-02 {
+        border: 1px solid black;
+        padding: 5px;
+        margin-right: 3px;
+        border-radius: 50%;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .c-item-02:hover {
+        background: black;
+        fill: white;
+      }
+      .c-item-01:hover {
+        background: yellow;
+        fill: white;
+      }
+    }
+
+    .c-artist-component {
+      margin-bottom: 100px;
+    }
+
+    .c-top-artist-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      .c-card-group-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 14px;
+        background-color: #fff;
+        width: 450px;
+      }
+    }
+  }
+}
