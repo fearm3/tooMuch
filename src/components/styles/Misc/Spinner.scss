@@ -18,16 +18,15 @@
 
 /* Common md, lg */
 @media all and (min-width: #{$mq-md + "px"}) {
-  // .spinner-00 {
-  //     display: flex;
-  //     flex: 1;
-  //     justify-content: center;
-  //     align-items: center;
-  //     padding: 10px 0;
-  // }
+  .spinner-00 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 50px;
+  }
   .spinner-01 {
     display: flex;
-    // flex: 1;
     justify-content: center;
     align-items: center;
     padding: 10px 0;

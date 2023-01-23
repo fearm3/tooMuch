@@ -12,6 +12,7 @@ import Spinner from "../assets/spinner.gif";
 const SingerTopAlbumsAndTopTracks = () => {
   const { albums, tracks } = useAppSelector((state) => state.fazla);
   const dispatch = useDispatch();
+
   //!coming from localStorage..
   const name = window.localStorage.getItem("artistName");
   const artistName = name && JSON.parse(name);
@@ -78,7 +79,7 @@ const SingerTopAlbumsAndTopTracks = () => {
               <hr className='c-unit-02' />
 
               {albums.items.map((item) => (
-                <CardTop item={item} />
+                <CardTop item={item} key={"card-top - " + item} />
               ))}
             </div>
             <div className='c-item-01'>

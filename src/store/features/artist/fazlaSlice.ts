@@ -2,17 +2,6 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const apiKey = "26a81b39c319b65656d7858f3c50b416";
-//!chart.getTopArtists
-
-export const getTopArtists = createAsyncThunk(
-  "fazla/topArtists",
-  async (page: number) => {
-    const limit = 20;
-    const topArtistsUrl = `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&page=${page}&limit=${limit}&api_key=${apiKey}&format=json`;
-    const topArtists = await axios.get(topArtistsUrl);
-    return topArtists;
-  }
-);
 
 //!artist.getTopAlbums
 //
@@ -64,27 +53,10 @@ const fazlaSlice = createSlice({
       window.localStorage?.setItem("imageUrl", JSON.stringify(action?.payload));
     },
     setIcreasePage(state, action) {
-      console.log("state", state.artists.page);
       state.artists.page = action.payload;
-      console.log("stat-page", state.artists.page);
     },
   },
   extraReducers: (builder) => {
-    //!artists
-    builder.addCase(
-      getTopArtists.pending || getTopArtists.rejected,
-      (state) => {
-        state.artists.loading = true;
-      }
-    );
-    builder.addCase(
-      getTopArtists.fulfilled,
-      (state, action: PayloadAction<any>) => {
-        state.artists.items = action?.payload?.data?.artists?.artist;
-        state.artists.loading = false;
-      }
-    );
-
     //!albums
     builder.addCase(
       getArtistTopAlbums.pending || getArtistTopAlbums.rejected,

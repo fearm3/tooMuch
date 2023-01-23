@@ -1,9 +1,50 @@
 import Card from "../components/card";
-import { useAppSelector } from "../store";
 import Spinner from "../assets/spinner.gif";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
-  const { artists } = useAppSelector((state) => state.fazla);
+  const [artistData, setArtistData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  console.log("page", page);
+  useEffect(() => {
+    document.getElementById("root")?.addEventListener("scroll", handleScroll);
+    console.log("scroll");
+
+    return () =>
+      document
+        .getElementById("root")
+        ?.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScroll = async (e: any) => {
+    // const element = document.querySelector(".c-card-group-container");
+
+    if (window.innerHeight + e.target.scrollTop + 1 >= e.target.scrollHeight) {
+      debugger;
+      setLoading(true);
+      setPage((prev) => prev + 1);
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(async () => {
+      debugger;
+      const limit = 10;
+      const apiKey = "26a81b39c319b65656d7858f3c50b416";
+
+      const topArtistsUrl = `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&page=${page}&limit=${limit}&api_key=${apiKey}&format=json`;
+
+      const response = await axios.get(topArtistsUrl);
+
+      setArtistData((prev): any => {
+        return [...prev, ...response?.data?.artists?.artist];
+      });
+      setLoading(false);
+    }, 1453);
+  }, [page]);
 
   //!light-dark toogle
   const handleChangeTheme = (theme = "light") => {
@@ -32,7 +73,7 @@ const Home = () => {
 
   return (
     <>
-      {artists?.loading ? (
+      {artistData?.length === 0 ? (
         <img src={Spinner} alt='spinnerEl' className='spinner-01' />
       ) : (
         <div className='home-page'>
@@ -72,17 +113,15 @@ const Home = () => {
               </svg>
             </a>
           </div>
-          {/* <div className='c-artist-component'>
-        <h6 className='title-01'>Artist List Component</h6>
-        <Card />
-      </div> */}
-
           <div className='c-top-artist-list'>
             <h6 className='title-01'>Top Artist List</h6>
             <div className='c-card-group-container'>
-              {artists?.items?.map((artist: any, index) => (
+              {artistData?.map((artist: any, index: number) => (
                 <Card artist={artist} key={"artist - " + index} />
               ))}
+              {loading && (
+                <img className='spinner-00' src={Spinner} alt='spinner' />
+              )}
             </div>
           </div>
         </div>
