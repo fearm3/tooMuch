@@ -7,7 +7,7 @@ import {
   getArtistTopTracks,
 } from "../store/features/artist/fazlaSlice";
 import { useDispatch } from "react-redux";
-import Spinner from "../assets/spinner.gif";
+import Spinner from "../components/spinner/Spinner";
 
 const SingerTopAlbumsAndTopTracks = () => {
   const { albums, tracks } = useAppSelector((state) => state.fazla);
@@ -30,7 +30,7 @@ const SingerTopAlbumsAndTopTracks = () => {
   return (
     <>
       {albums?.loading && tracks?.loading ? (
-        <img src={Spinner} alt='spinnerEl' className='spinner-01' />
+        <Spinner />
       ) : (
         <div className='singers-albums-tracks-page' id='albums-tracks'>
           <Link className='c-go-home' to='/'>
@@ -78,16 +78,18 @@ const SingerTopAlbumsAndTopTracks = () => {
               <h6 className='c-unit-01'>Top Albums</h6>
               <hr className='c-unit-02' />
 
-              {albums.items.map((item) => (
-                <CardTop item={item} key={"card-top - " + item} />
-              ))}
+              {!albums?.loading &&
+                albums?.items?.map((item) => (
+                  <CardTop item={item} key={"card-top - " + item} />
+                ))}
             </div>
             <div className='c-item-01'>
               <h6 className='c-unit-01'>Top Tracks</h6>
               <hr className='c-unit-02' />
-              {tracks.items.map((item) => (
-                <CardTop item={item} />
-              ))}
+              {!tracks?.loading &&
+                tracks?.items?.map((item) => (
+                  <CardTop item={item} key={"card-top - " + item} />
+                ))}
             </div>
           </div>
         </div>

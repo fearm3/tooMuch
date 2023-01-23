@@ -1,18 +1,16 @@
 import Card from "../components/card";
-import Spinner from "../assets/spinner.gif";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Spinner from "../components/spinner/Spinner";
+import SpinnerSmall from "../components/spinner/SpinnerSmall";
 
 const Home = () => {
   const [artistData, setArtistData] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  console.log("page", page);
   useEffect(() => {
     document.getElementById("root")?.addEventListener("scroll", handleScroll);
-    console.log("scroll");
-
     return () =>
       document
         .getElementById("root")
@@ -23,7 +21,6 @@ const Home = () => {
     // const element = document.querySelector(".c-card-group-container");
 
     if (window.innerHeight + e.target.scrollTop + 1 >= e.target.scrollHeight) {
-      debugger;
       setLoading(true);
       setPage((prev) => prev + 1);
     }
@@ -31,10 +28,8 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(async () => {
-      debugger;
       const limit = 10;
       const apiKey = "26a81b39c319b65656d7858f3c50b416";
-
       const topArtistsUrl = `https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&page=${page}&limit=${limit}&api_key=${apiKey}&format=json`;
 
       const response = await axios.get(topArtistsUrl);
@@ -74,7 +69,7 @@ const Home = () => {
   return (
     <>
       {artistData?.length === 0 ? (
-        <img src={Spinner} alt='spinnerEl' className='spinner-01' />
+        <Spinner />
       ) : (
         <div className='home-page'>
           <div className='c-toogle-button-group'>
@@ -119,9 +114,7 @@ const Home = () => {
               {artistData?.map((artist: any, index: number) => (
                 <Card artist={artist} key={"artist - " + index} />
               ))}
-              {loading && (
-                <img className='spinner-00' src={Spinner} alt='spinner' />
-              )}
+              {loading && <SpinnerSmall />}
             </div>
           </div>
         </div>
